@@ -8,9 +8,11 @@ h1 {
     
     
     
-    font-family: kung;
+    font-family: joker;
 }
-
+h3{
+    text-align: right;
+}
 #clock1{
     
     top:30%;
@@ -21,7 +23,7 @@ h1 {
 #countdown{
     position: absolute;
     top:35%;
-    left: 10%;  
+    left: 5%;  
     font-size:35px;
     font-family: kung;
     padding-top: 30px;
@@ -59,7 +61,7 @@ h1 {
 
 #fastcountdown{
     position: absolute;
-    left: 60%;
+    left: 70%;
     
     top:50%;
     font-size:35px;
@@ -67,8 +69,8 @@ h1 {
     padding-top: 30px;
 }
 #clock3{
-    font-size: 120px;
     font-family: dig;
+    font-size:120px;
 }
 #fastcountdownp{
     font-family: dig;
@@ -88,4 +90,13 @@ h1 {
     background-color: yellow;
     height:20px;
     width: 0%;
+}
+#times{
+    
+    position: absolute;
+    left: 38%;
+    top:40%;
+    
+    
+    font-size: 40px;
 }

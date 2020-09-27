@@ -1,5 +1,9 @@
 // sleep time expects milliseconds
 mode = "light"
+
+
+stf = document.getElementById("test")
+stf.innerHTML = ""
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -40,9 +44,8 @@ function darkMode(){
 start = new Date(2020,8,17,00,00,00)
 end   = new Date(2020,9,1,00,00,00)
 
-faststart = new Date(2020,8,21,05,00,00)
-fastend   = new Date(2020,8,21,19,05,00)
-
+faststart = new Date(2020,8,27,18,00,00)
+fastend   = new Date(2020,8,28,19,05,01)
 
 
 
@@ -60,7 +63,7 @@ function update(){
         h = d.getHours()
 
         timepassed = d-start 
-        document.getElementById("test").innerHTML  = " "
+        
         timeleft = end-d
         var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
         var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -71,7 +74,7 @@ function update(){
         clocker(clock,h,m,s)
         document.getElementById("clock2d").innerHTML = days
         clocker(document.getElementById("clock2"),hours,minutes,seconds)
-        document.getElementById("countdownp").innerHTML = "%"+(timepassed/total *100) 
+        document.getElementById("countdownp").innerHTML = ("%"+(timepassed/total *100) ).toString().slice(0,10)
 
         
         fastpassed = d - faststart
@@ -83,7 +86,7 @@ function update(){
         var fasts = Math.floor((fastleft % (1000 * 60)) / 1000);
         fastclock = document.getElementById("clock3")
         clocker(fastclock,fasth,fastm,fasts)
-        document.getElementById("fastcountdownp").innerHTML = "%"+(fastpassed/fasttotal * 100)
+        document.getElementById("fastcountdownp").innerHTML = ("%"+(fastpassed/fasttotal * 100)).toString().slice(0,10)
         document.getElementById("fastprogressinner").style.width = (fastpassed/fasttotal * 100) + "%"
         
         
@@ -105,6 +108,8 @@ function update(){
                 mode = "dark"
             }
         }
+        
+        
        
         
         
@@ -115,7 +120,8 @@ function update(){
 
 function clocker(clock,h,m,s){
     clock.innerHTML = ""
-    if (h < 10){
+
+    if (h.toString().length <= 1){
         clock.innerHTML += "0"+h
     } else {
         clock.innerHTML += h
@@ -123,7 +129,7 @@ function clocker(clock,h,m,s){
 
     clock.innerHTML += ":"
 
-    if (m < 10){
+    if (m.toString().length <= 1){
         clock.innerHTML += "0"+m
     } else {
         clock.innerHTML += m
@@ -131,7 +137,7 @@ function clocker(clock,h,m,s){
 
     clock.innerHTML += ":"
 
-    if (s < 10){
+    if (s.toString().length <= 1){
         clock.innerHTML += "0"+s
     } else {
         clock.innerHTML += s
